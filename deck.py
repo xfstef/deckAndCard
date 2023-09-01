@@ -5,11 +5,13 @@ from card import Card
 
 
 class Deck:
+    cards = []
+
     def __init__(self):
-        self.cards = []
         self.build()
 
     def build(self):
+        self.cards = []
         for suit in SUITS:
             for value in VALUES:
                 self.cards.append(Card(suit, value))
@@ -25,6 +27,9 @@ class Deck:
             r = random.randint(0, i)
             self.cards[i], self.cards[r] = self.cards[r], self.cards[i]
 
-    def draw(self):
-        next_card = self.cards.pop()
-        return next_card.show()
+    def draw(self) -> str:
+        if len(self.cards) > 0:
+            next_card = self.cards.pop()
+            return next_card.show()
+        else:
+            return "No more cards in the deck!"

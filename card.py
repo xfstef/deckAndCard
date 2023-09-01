@@ -6,4 +6,4 @@ class Card:
         self.value = value
 
     def show(self):
-        print(f"{self.value} of {self.suit}")
+        return (f"{self.value} of {self.suit}")
